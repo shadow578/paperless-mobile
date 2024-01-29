@@ -47,6 +47,7 @@ class _EditSavedViewPageState extends State<EditSavedViewPage> {
                 children: [
                   FormBuilderTextField(
                     initialValue: widget.savedView.name,
+                    enableSuggestions: true,
                     name: _fkName,
                     validator: (value) {
                       if (value?.trim().isEmpty ?? true) {

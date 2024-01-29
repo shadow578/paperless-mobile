@@ -142,6 +142,7 @@ class _DocumentUploadPreparationPageState
                             // Title
                             FormBuilderTextField(
                               autovalidateMode: AutovalidateMode.always,
+                              enableSuggestions: true,
                               name: DocumentModel.titleKey,
                               initialValue: widget.title ??
                                   "scan_${fileNameDateFormat.format(_now)}",
@@ -179,6 +180,7 @@ class _DocumentUploadPreparationPageState
                             // Filename
                             FormBuilderTextField(
                               autovalidateMode: AutovalidateMode.always,
+                              enableSuggestions: true,
                               readOnly: _syncTitleAndFilename,
                               enabled: !_syncTitleAndFilename,
                               name: fkFileName,
