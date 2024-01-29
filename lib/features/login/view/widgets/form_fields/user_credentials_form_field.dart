@@ -37,7 +37,7 @@ class _UserCredentialsFormFieldState extends State<UserCredentialsFormField>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return FormBuilderField<LoginFormCredentials?>(
+    return AutofillGroup(child: FormBuilderField<LoginFormCredentials?>(
       initialValue: LoginFormCredentials(
         password: widget.initialPassword,
         username: widget.initialUsername,
@@ -100,47 +100,9 @@ class _UserCredentialsFormFieldState extends State<UserCredentialsFormField>
           ),
         ].map((child) => child.padded()).toList(),
       ),
-    );
+    ));
   }
 
   @override
   bool get wantKeepAlive => true;
 }
-
-/**
- * AutofillGroup(
-      child: Column(
-        children: [
-          FormBuilderTextField(
-            name: fkUsername,
-            focusNode: _focusNodes[fkUsername],
-            onSubmitted: (_) {
-              FocusScope.of(context).requestFocus(_focusNodes[fkPassword]);
-            },
-            validator: FormBuilderValidators.required(
-              errorText: S.of(context)!.usernameMustNotBeEmpty,
-            ),
-            autofillHints: const [AutofillHints.username],
-            decoration: InputDecoration(
-              labelText: S.of(context)!.username,
-            ),
-          ).padded(),
-          FormBuilderTextField(
-            name: fkPassword,
-            focusNode: _focusNodes[fkPassword],
-            onSubmitted: (_) {
-              FocusScope.of(context).unfocus();
-            },
-            autofillHints: const [AutofillHints.password],
-            validator: FormBuilderValidators.required(
-              errorText: S.of(context)!.passwordMustNotBeEmpty,
-            ),
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: S.of(context)!.password,
-            ),
-          ).padded(),
-        ],
-      ),
-    );
- */
